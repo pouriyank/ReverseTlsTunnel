@@ -120,16 +120,16 @@ check_update() {
 
 #ip & version
 myip=$(hostname -I | awk '{print $1}')
+serverport=$(\nPort : \e[31m${port}\e[0m \n)
 version=$(./RTT -v 2>&1 | grep -o 'version="[0-9.]*"')
 
 # Main menu
 clear
-echo "By --> Po "
 echo "Thanks of RadKesvat  *https://github.com/radkesvat/ReverseTlsTunnel/tree/master*  "
 echo "Your IP is: ($myip) "
 echo ""
 echo " --------#- Reverse Tls Tunnel -#--------"
-echo "1) Install (Multiport)"
+echo "1) Install"
 echo "2) Uninstall"
 echo "3) Check Update"
 echo "0) Exit"
