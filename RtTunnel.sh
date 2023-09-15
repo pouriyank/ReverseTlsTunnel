@@ -120,7 +120,7 @@ check_update() {
 
 #ip & version
 myip=$(hostname -I | awk '{print $1}')
-serverport=$(\nPort : \e[31m${port}\e[0m \n)
+serverport=$(grep -i port /etc/ssh/sshd_config)
 version=$(./RTT -v 2>&1 | grep -o 'version="[0-9.]*"')
 
 # Main menu
