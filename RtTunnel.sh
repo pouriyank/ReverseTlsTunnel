@@ -27,13 +27,22 @@ configure_arguments() {
     read -p "Please Enter SNI (default : splus.ir): " sni
     sni=${sni:-splus.ir}
 
+
     if [ "$server_choice" == "2" ]; then
         read -p "Please Enter (IRAN IP) : " server_ip
         read -p "Please Enter Password (Please choose the same password on both servers): " password
-        arguments="--kharej --iran-ip:$server_ip --iran-port:443 --toip:127.0.0.1 --toport:multiport --password:$password --sni:$sni --terminate:24"
+        read -p "Please Enter pool (default : 4): " pool
+        pool=${pool:-4}
+        read -p "Please Enter iranport (default :443): " iranport
+        iranportt=${iranport:-443}
+        read -p "Please Enter port config (default :443): " portconfig
+        portconfig=${portconfig:-443}
+        arguments="--kharej --iran-ip:$server_ip --iran-port:$iranport --toip:127.0.0.1 --toport:$portconfig --password:$password --sni:$sni --terminate:24 --pool:$pool"
     elif [ "$server_choice" == "1" ]; then
         read -p "Please Enter Password (Please choose the same password on both servers): " password
-        arguments="--iran --lport:23-65535 --sni:$sni --password:$password --terminate:24"
+        read -p "Please Enter port lisen (default :443): " portlisen
+        portlisen=${portlisen:-443}
+        arguments="--iran --lport:$portlisen --sni:$sni --password:$password --terminate:24"
     else
         echo "Invalid choice. Please enter '1' or '2'."
         exit 1
