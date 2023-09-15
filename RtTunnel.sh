@@ -120,14 +120,15 @@ check_update() {
 
 #ip & version
 myip=$(hostname -I | awk '{print $1}')
-serverport=$(grep -i port /etc/ssh/sshd_config)
+po=$(cat /etc/ssh/sshd_config | grep "^Port")
+port=$(echo "$po" | sed "s/Port //g")
 version=$(./RTT -v 2>&1 | grep -o 'version="[0-9.]*"')
 
 # Main menu
 clear
 echo "Thanks of RadKesvat  *https://github.com/radkesvat/ReverseTlsTunnel/tree/master*  "
 echo "Your IP is: ($myip) "
-echo "$serverport"
+echo "Server port:($port)"
 echo " --------#- Reverse Tls Tunnel -#--------"
 echo "1) Install"
 echo "2) Uninstall"
