@@ -7,7 +7,7 @@ check_dependencies() {
         sudo apt-get install wget
     fi
 }
-install_droop() {
+Droop() {
 clear
 dropport=222
 echo -e "\nPlease input DropBear Port."
@@ -159,7 +159,7 @@ echo " --------#- Reverse Tls Tunnel -#--------"
 echo "1) Install"
 echo "2) Uninstall"
 echo "3) Check Update"
-echo "4) Install drop "
+echo "4) Droop "
 echo "0) Exit"
 echo " --------------$version---------------"
 read -p "Please choose: " choice
@@ -174,7 +174,7 @@ case $choice in
     3) check_update
         ;;
     4)
-        install drop
+        Droop
         ;;
     0)
         exit
